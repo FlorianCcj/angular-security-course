@@ -2,9 +2,12 @@
   "name": "angular-security-course-front",
   "version": "0.0.0",
   "license": "MIT",
+  "notes": {
+    "extra-cli-options": "--ssl 1 --ssl-key key.pem --ssl-cert cert.pem"
+  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config ./proxy.json --ssl 1 --ssl-key key.pem --ssl-cert cert.pem",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
