@@ -1,4 +1,7 @@
-import {DbUser} from "./db-user";
+/**
+ * Data to load
+ */
+import {DbUser} from "../db-user";
 
 export const USERS: { [key: number]: DbUser } = {
     1: {
@@ -17,7 +20,9 @@ export const USERS: { [key: number]: DbUser } = {
     }
 };
 
+
 export const LESSONS = {
+
     1: {
         id: 1,
         "description": "Angular Tutorial For Beginners - Build Your First App - Hello World Step By Step",
@@ -102,4 +107,5 @@ export const LESSONS = {
         "tags": "BEGINNER",
         "url": "angular2-directives-inputs-outputs-event-emitters"
     }
+
 };

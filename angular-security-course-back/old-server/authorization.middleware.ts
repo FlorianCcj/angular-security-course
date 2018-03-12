@@ -6,11 +6,18 @@ export function checkIfAuthorized(
     allowedRoles: string[],
     req: Request,
     res: Response,
-    next: NextFunction
-) {
+    next: NextFunction) {
+
+
     const userInfo = req['user'];
+
     const roles = _.intersection(userInfo.roles, allowedRoles);
 
-    if (roles.length > 0) { next(); } 
-    else { res.sendStatus(403); }
+    if (roles.length > 0) {
+        next();
+    }
+    else {
+        res.sendStatus(403);
+    }
+
 }

@@ -1,3 +1,6 @@
+/**
+ * Model
+ */
 
 export interface DbUser {
     id:number;
