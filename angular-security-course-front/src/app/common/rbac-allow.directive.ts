@@ -1,26 +1,27 @@
 
 
 
-import {Directive, Input, OnDestroy, TemplateRef, ViewContainerRef} from "@angular/core";
-import {AuthService} from "../services/auth.service";
-import {User} from "../model/user";
-import {Subscription} from "rxjs/Subscription";
+import {Directive, Input, OnDestroy, TemplateRef, ViewContainerRef} from '@angular/core';
+import {AuthService} from '../services/auth.service';
+import {UserModel} from '../model/user.model';
+import {Subscription} from 'rxjs/Subscription';
 import * as _ from 'lodash';
 
 @Directive({
-    selector:"[rbacAllow]"
+    selector: '[appRbacAllow]'
 })
 export class RbacAllowDirective implements OnDestroy {
 
-    allowedRoles:string[];
-    user:User;
+    allowedRoles: string[];
+    user: UserModel;
 
-    sub:Subscription;
+    sub: Subscription;
 
     constructor(
         private templateRef: TemplateRef<any>,
         private viewContainer: ViewContainerRef,
-        private authService: AuthService) {
+        private authService: AuthService
+    ) {
 
         this.sub = authService.user$.subscribe(
             user => {
@@ -41,8 +42,7 @@ export class RbacAllowDirective implements OnDestroy {
 
     showIfUserAllowed() {
 
-        if (!this.allowedRoles || this.allowedRoles.length === 0 ||
-            !this.user) {
+        if (!this.allowedRoles || this.allowedRoles.length === 0 || !this.user) {
             this.viewContainer.clear();
             return;
         }
@@ -53,8 +53,7 @@ export class RbacAllowDirective implements OnDestroy {
 
         if (isUserAllowed) {
             this.viewContainer.createEmbeddedView(this.templateRef);
-        }
-        else {
+        } else {
             this.viewContainer.clear();
         }
 

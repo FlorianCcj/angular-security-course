@@ -1,8 +1,8 @@
 
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {Lesson} from "../model/lesson";
-import {Observable} from "rxjs/Observable";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {LessonModel} from '../model/lesson.model';
+import {Observable} from 'rxjs/Observable';
 
 
 @Injectable()
@@ -12,13 +12,13 @@ export class LessonsService {
 
     }
 
-    loadAllLessons() : Observable<Lesson[]> {
+    loadAllLessons(): Observable<LessonModel[]> {
         return this.http.get<any>('/api/lessons')
             .map(res => res.lessons);
     }
 
-    findLessonById(id:number) {
-        return this.http.get<Lesson>('/api/lessons/' + id);
+    findLessonById(id: number) {
+        return this.http.get<LessonModel>('/api/lessons/' + id);
     }
 
 }

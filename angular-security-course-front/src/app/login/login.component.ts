@@ -1,28 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../services/auth.service";
-import {Router} from "@angular/router";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'login',
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css', '../common/forms.css']
 })
 export class LoginComponent implements OnInit {
 
-    form:FormGroup;
+    form: FormGroup;
 
     messagePerErrorCode = {
-        loginfailed: "Invalid credentials"
+        loginfailed: 'Invalid credentials'
     };
 
     errors = [];
 
-    constructor(private fb:FormBuilder, private authService: AuthService, private router: Router) {
+    constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
 
         this.form = this.fb.group({
-            email: ['test@gmail.com',Validators.required],
-            password: ['Password10',Validators.required]
+            email: ['test@gmail.com', Validators.required],
+            password: ['Password10', Validators.required]
         });
 
     }
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
             this.authService.login(val.email, val.password)
                 .subscribe(
                     () => {
-                        console.log("User is logged in");
+                        console.log('User is logged in');
                         this.router.navigateByUrl('/');
                     }
                 );

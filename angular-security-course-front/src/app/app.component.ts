@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "./services/auth.service";
-import {Observable} from "rxjs/Observable";
-import {User} from "./model/user";
+import {AuthService} from './services/auth.service';
+import {Observable} from 'rxjs/Observable';
+import {UserModel} from './model/user.model';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +12,9 @@ export class AppComponent  implements OnInit {
 
     isLoggedIn$: Observable<boolean>;
     isLoggedOut$: Observable<boolean>;
-    user$: Observable<User>;
+    user$: Observable<UserModel>;
 
-    constructor(private authService:AuthService) {
-
-    }
+    constructor(private authService: AuthService) {}
 
     ngOnInit() {
         this.isLoggedIn$ = this.authService.isLoggedIn$;
