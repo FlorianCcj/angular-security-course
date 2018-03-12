@@ -1,8 +1,8 @@
 
 
 
-import {db} from "./database";
-import {createSessionToken} from "./security.utils";
+import {db} from "../database";
+import {createSessionToken} from "../security.utils";
 
 export function loginAsUser(req, res) {
 

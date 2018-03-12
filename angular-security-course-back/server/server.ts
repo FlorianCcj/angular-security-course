@@ -4,17 +4,20 @@ import * as express from 'express';
 import {Application} from "express";
 import * as fs from 'fs';
 import * as https from 'https';
-import {readAllLessons} from "./read-all-lessons.route";
-import {createUser} from "./create-user.route";
-import {getUser} from "./get-user.route";
-import {logout} from "./logout.route";
-import {login} from "./login.route";
+
+import {readAllLessons} from "./routes/read-all-lessons.route";
+import {createUser} from "./routes/create-user.route";
+import {getUser} from "./routes/get-user.route";
+import {logout} from "./routes/logout.route";
+import {login} from "./routes/login.route";
+import {loginAsUser} from "./routes/login-as-user.route";
+
 import {retrieveUserIdFromRequest} from "./get-user.middleware";
 import {checkIfAuthenticated} from "./authentication.middleware";
 import {checkCsrfToken} from "./csrf.middleware";
 import {checkIfAuthorized} from "./authorization.middleware";
 import * as _ from 'lodash';
-import {loginAsUser} from "./login-as-user.route";
+
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 

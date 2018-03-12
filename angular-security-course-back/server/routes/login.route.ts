@@ -1,10 +1,10 @@
 
 
 import {Request, Response} from "express";
-import {db} from "./database";
+import {db} from "../database";
 import * as argon2 from 'argon2';
-import {DbUser} from "./db-user";
-import {createCsrfToken, createSessionToken} from "./security.utils";
+import {DbUser} from "../db-user";
+import {createCsrfToken, createSessionToken} from "../security.utils";
 
 
 

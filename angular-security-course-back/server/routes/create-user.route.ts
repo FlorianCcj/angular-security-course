@@ -1,10 +1,13 @@
+/**
+ * To create a new user
+ */
 
 import {Request, Response} from "express";
-import {db} from "./database";
+import {db} from "../database";
 import * as argon2 from 'argon2';
-import {validatePassword} from "./password-validation";
+import {validatePassword} from "../password-validation";
 import moment = require("moment");
-import {createCsrfToken, createSessionToken} from "./security.utils";
+import {createCsrfToken, createSessionToken} from "../security.utils";
 
 
 
